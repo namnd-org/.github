@@ -38,3 +38,4 @@ Thêm `!` sau type khi phá tương thích: `feat(api)!: bỏ /v1/readings`.
 Người hoặc agent tạo PR ghi bằng nhãn `agent:*`, không ghi vào tên nhánh.
 
 `pr-check` chỉ báo đỏ để nhắc; repo private trên gói Free không chặn merge được.
+
