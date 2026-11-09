@@ -1,0 +1,49 @@
+name: Tính năng
+description: Thêm hoặc đổi một điều người dùng thấy được
+title: "feat: "
+labels: [feature]
+projects: ["namnd-org/1"]
+body:
+  - type: textarea
+    id: why
+    attributes:
+      label: Vì sao
+      description: Người dùng nào, gặp chuyện gì, được gì khi có tính năng này.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: Mô tả
+      description: Hoạt động thế nào, theo lời của người dùng.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Xong khi
+      description: Các điều kiện kiểm tra được.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: out
+    attributes:
+      label: Không làm lần này
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Ưu tiên
+      options:
+        - P0
+        - P1
+        - P2
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: Tham khảo
+      description: Mockup, Figma, link Claude Design, ảnh chụp.

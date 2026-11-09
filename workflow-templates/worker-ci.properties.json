@@ -1,0 +1,7 @@
+{
+  "name": "Worker CI + deploy (namnd-org)",
+  "description": "Cloudflare Worker (npm): lint/test/build trên mọi PR; deploy production khi merge vào main.",
+  "iconName": "octicon rocket",
+  "categories": ["Deployment", "JavaScript", "TypeScript"],
+  "filePatterns": ["wrangler\\.jsonc?$", "wrangler\\.toml$", "cloudflare\\.config\\.ts$"]
+}

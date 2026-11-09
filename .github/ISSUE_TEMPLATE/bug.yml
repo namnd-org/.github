@@ -1,0 +1,55 @@
+name: Lỗi
+description: Có gì đó chạy sai
+title: "fix: "
+labels: [bug]
+projects: ["namnd-org/1"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Chuyện gì xảy ra
+      description: Thấy gì, ở màn hình hoặc trang nào.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Các bước tái hiện
+      placeholder: |
+        1. Mở ...
+        2. Bấm ...
+        3. Thấy ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Mong đợi
+    validations:
+      required: true
+  - type: dropdown
+    id: env
+    attributes:
+      label: Môi trường
+      options:
+        - prod
+        - staging
+        - local
+        - TestFlight
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Mức độ
+      options:
+        - P0 — đang hỏng với người dùng, sửa ngay
+        - P1 — sửa trong tuần
+        - P2 — khi rảnh
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Bằng chứng
+      description: Ảnh, log, link Sentry, phiên bản app / build, thiết bị.

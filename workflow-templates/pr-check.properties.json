@@ -1,0 +1,6 @@
+{
+  "name": "pr-check (namnd-org)",
+  "description": "Kiểm tra tên nhánh <type>/<mô-tả> và tiêu đề PR <type>(<scope>): <mô tả> theo quy ước của namnd-org.",
+  "iconName": "octicon checklist",
+  "categories": ["Automation"]
+}

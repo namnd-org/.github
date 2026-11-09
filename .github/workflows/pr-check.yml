@@ -1,0 +1,45 @@
+# Reusable check for every namnd-org repo: branch name and PR title follow the convention.
+# Caller in each repo: .github/workflows/pr-check.yml (copy of workflow-templates/pr-check.yml).
+# Bash only: no checkout, no third-party actions, a few seconds per PR.
+name: pr-check
+
+on:
+  workflow_call:
+
+permissions: {}
+
+jobs:
+  naming:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Branch name and PR title
+        shell: bash
+        env:
+          BRANCH: ${{ github.head_ref }}
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          set -u
+          types='feat|fix|chore|ci|docs|perf|refactor|test|content|design|hotfix|release|revert'
+          fail=0
+          case "$BRANCH" in
+            dependabot/*|renovate/*|revert-*|gh-readonly-queue/*)
+              echo "ok   branch (bot/revert, exempt): $BRANCH" ;;
+            *)
+              if [[ "$BRANCH" =~ ^($types)/[a-z0-9][a-z0-9._-]*$ ]]; then
+                echo "ok   branch: $BRANCH"
+              else
+                echo "::error title=Tên nhánh::Cần <type>/<mô-tả-ngắn> (chữ thường a-z0-9 . _ -), ví dụ fix/42-otp-lap. type: ${types//|/, }"
+                echo "bad  branch: $BRANCH"
+                fail=1
+              fi ;;
+          esac
+          if [[ "$TITLE" =~ ^($types)(\([a-z0-9._/-]+\))?!?:\ .+ ]] || [[ "$TITLE" =~ ^Revert\ \" ]]; then
+            echo "ok   title: $TITLE"
+          else
+            echo "::error title=Tiêu đề PR::Cần <type>(<scope>): <mô tả>, ví dụ: fix(api): chặn OTP gửi lặp"
+            echo "bad  title: $TITLE"
+            fail=1
+          fi
+          [ "$fail" = 0 ] || echo "Quy ước: https://github.com/namnd-org/.github#quy-ước"
+          exit "$fail"

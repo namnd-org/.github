@@ -1,0 +1,28 @@
+name: Việc
+description: Việc kỹ thuật, vận hành, dọn dẹp, tài liệu
+title: "chore: "
+labels: [task]
+projects: ["namnd-org/1"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Cần làm gì
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Xong khi
+      placeholder: |
+        - [ ] ...
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Ưu tiên
+      options:
+        - P0
+        - P1
+        - P2
+    validations:
+      required: true
