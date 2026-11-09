@@ -1,0 +1,11 @@
+name: pr-check
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions: {}
+
+jobs:
+  pr-check:
+    uses: namnd-org/.github/.github/workflows/pr-check.yml@main
