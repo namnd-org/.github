@@ -11,7 +11,7 @@ Repo nào có file riêng cùng loại thì file riêng được dùng thay.
 
 | Đường dẫn | Dùng để |
 |---|---|
-| `README_TEMPLATE.md` | Khung README chung cho mọi repo (xem mục Mẫu README) |
+| `README_TEMPLATE.md` | Khung README chung cho mọi repo (xem mục Mẫu README); bản chạy được nằm ở `namnd-org/repo-template` |
 | `.github/PULL_REQUEST_TEMPLATE.md` | Khung mô tả PR: Vì sao · Thay đổi gì · Kiểm tra thế nào · Rủi ro và rollback |
 | `.github/ISSUE_TEMPLATE/` | Mẫu issue: Lỗi, Tính năng, Việc (tự gắn nhãn, tự vào bảng NAMND Work) |
 | `.github/workflows/pr-check.yml` | Reusable workflow kiểm tra tên nhánh và tiêu đề PR |
@@ -45,6 +45,20 @@ Thêm `!` sau type khi phá tương thích: `feat(api)!: bỏ /v1/readings`.
 Người hoặc agent tạo PR ghi bằng nhãn `agent:*`, không ghi vào tên nhánh.
 
 `pr-check` chỉ báo đỏ để nhắc; repo private trên gói Free không chặn merge được.
+
+## Tạo repo mới
+
+Repo mới tạo từ [`namnd-org/repo-template`](https://github.com/namnd-org/repo-template): có sẵn README theo mẫu, `pr-check.yml`, `CREDITS.md`, `docs/`, `.gitignore`.
+GitHub không chép nhãn, description, topics theo template, nên chạy đủ 3 lệnh:
+
+```sh
+gh repo create namnd-org/<slug> --private --template namnd-org/repo-template \
+  --description "[<group>] <Tên> — <một câu>" --clone
+gh label clone namnd-org/repo-template -R namnd-org/<slug> --force
+gh repo edit namnd-org/<slug> --add-topic <group> --add-topic <stack>
+```
+
+Sau đó điền README (thay mọi `<...>`, xoá khối chú thích). Khi sửa `README_TEMPLATE.md` ở đây, sửa luôn `README.md` của `repo-template`.
 
 ## Mẫu README
 

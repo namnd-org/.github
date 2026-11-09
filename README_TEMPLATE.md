@@ -1,5 +1,6 @@
 <!--
 Mẫu README namnd-org v1. Quy ước thẻ: README.md của namnd-org/.github, mục "Mẫu README".
+Repo mới: tạo từ namnd-org/repo-template (đã có sẵn mẫu này), xem mục "Tạo repo mới".
 - Tối đa ~50 dòng. Chi tiết (kiến trúc, vận hành, bằng chứng phát hành) để trong docs/.
 - Thẻ đúng thứ tự: group · status · platform · stack · infra · (ci) · (live). Tối đa 7 thẻ.
 - Chỉ badge tĩnh img.shields.io/badge (repo private: badge động báo lỗi). Không badge version.
